@@ -36,31 +36,34 @@ export class SecondPageScenario {
     await citizenshipPartner.selectByVisibleText(to);
   }
 
-  static async selectApplyPurpose(wd: WebDriver) {
-    const applyForResidenceLabel = await Utils.waitUntilVisible(
+  static async selectApplyPurpose(wd: WebDriver, reason: string) {
+    const index = getIndexForReason(reason);
+    const applyForLabel = await Utils.waitUntilVisible(
       wd,
       // apply for residence title
-      By.xpath('//*[@id="xi-div-30"]/div[1]/label')
+      By.xpath(`//*[@id="xi-div-30"]/div[${index}]/label`)
     );
     await wd.sleep(400);
-    await applyForResidenceLabel.click();
+    await applyForLabel.click();
   }
 
-  static async selectApplyCategory(wd: WebDriver) {
+  static async selectApplyCategory(wd: WebDriver, id: string, reason: string) {
+    const index = getIndexForReason(reason);
     const economicActivityLabel = await Utils.waitUntilVisible(
       wd,
       // economic activity
-      By.xpath('//*[@id="inner-160-0-1"]/div/div[3]/label')
+      By.xpath(`//*[@id="inner-${id}-0-${index}"]/div/div[3]/label`)
     );
     await wd.sleep(400);
     await economicActivityLabel.click();
   }
 
-  static async selectApplyReason(wd: WebDriver) {
+  static async selectApplyReason(wd: WebDriver, id: string, reason: string) {
+    const index = getIndexForReason(reason);
     const blueCardInput = await Utils.waitUntilVisible(
       wd,
       // EU Blue card
-      By.xpath('//*[@id="SERVICEWAHL_EN160-0-1-1-324659"]')
+      By.xpath(`//*[@id="SERVICEWAHL_EN${id}-0-${index}-1-324659"]`)
     );
     await wd.sleep(400);
     await blueCardInput.click();
@@ -82,4 +85,7 @@ export class SecondPageScenario {
     await wd.wait(until.elementIsNotVisible(loading), DEFAULT_TIMEOUT);
     await wd.sleep(400);
   }
+}
+function getIndexForReason(reason: string) {
+  return reason === 'apply' ? 1 : 2;
 }
