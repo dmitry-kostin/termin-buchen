@@ -28,7 +28,14 @@ export class SecondPageScenario {
     await liveWith.selectByVisibleText(to);
   }
 
-  static async setPartnerCitizenship(wd: WebDriver, to: string) {
+  static async setPartnerCitizenship(
+    wd: WebDriver,
+    liveWith: string,
+    to: string
+  ) {
+    if (liveWith === 'no') {
+      return;
+    }
     const citizenshipPartner = new Select(
       await Utils.waitUntilVisible(wd, By.xpath('//*[@id="xi-sel-428"]'))
     );
@@ -37,33 +44,39 @@ export class SecondPageScenario {
   }
 
   static async selectApplyPurpose(wd: WebDriver, reason: string) {
-    const index = getIndexForReason(reason);
+    let text = 'Apply for a residence title';
+    if (reason === 'extend') {
+      text = 'Extend a residence title';
+    }
     const applyForLabel = await Utils.waitUntilVisible(
       wd,
-      // apply for residence title
-      By.xpath(`//*[@id="xi-div-30"]/div[${index}]/label`)
+      By.xpath(`//*[@id="xi-div-30"]//label[normalize-space()='${text}']`)
     );
     await wd.sleep(400);
     await applyForLabel.click();
   }
 
-  static async selectApplyCategory(wd: WebDriver, id: string, reason: string) {
-    const index = getIndexForReason(reason);
+  static async selectApplyCategory(wd: WebDriver) {
+    const text = 'Economic activity';
     const economicActivityLabel = await Utils.waitUntilVisible(
       wd,
       // economic activity
-      By.xpath(`//*[@id="inner-${id}-0-${index}"]/div/div[3]/label`)
+      By.xpath(
+        `//*[@class="level1-content"]//label[normalize-space()="${text}"]`
+      )
     );
     await wd.sleep(400);
     await economicActivityLabel.click();
   }
 
-  static async selectApplyReason(wd: WebDriver, id: string, reason: string) {
-    const index = getIndexForReason(reason);
+  static async selectApplyReason(wd: WebDriver) {
+    const text = 'EU Blue Card / Blaue Karte EU (sect. 18b para. 2)';
     const blueCardInput = await Utils.waitUntilVisible(
       wd,
       // EU Blue card
-      By.xpath(`//*[@id="SERVICEWAHL_EN${id}-0-${index}-1-324659"]`)
+      By.xpath(
+        `//*[@class="level2-content"]//label[normalize-space()="${text}"]`
+      )
     );
     await wd.sleep(400);
     await blueCardInput.click();
@@ -85,7 +98,4 @@ export class SecondPageScenario {
     await wd.wait(until.elementIsNotVisible(loading), DEFAULT_TIMEOUT);
     await wd.sleep(400);
   }
-}
-function getIndexForReason(reason: string) {
-  return reason === 'apply' ? 1 : 2;
 }
