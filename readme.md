@@ -5,7 +5,7 @@ Script for automation of getting a termin / booking on https://otv.verwalt-berli
 Script doesn't book anything for you - it just helps to find an open slot by attempting to register every 2 min and
 leaves the browser open so you can continue the process in the same window.
 
-You will receive a notification when you have possible a hit so it's probably good idea to allow notification in system
+You will receive a notification when you have a possible hit so it's probably good idea to allow notification in system
 settings. Also telegram notifications are available but you need to setup keys on your own unfortunately.
 
 ### Setup
@@ -37,6 +37,6 @@ If you had any luck with finding a slot using this script – feel free to donat
 
 Current stats: 
 
-- found slots for `2` families 
+- found slots for `3` families 
 - average time to find a slot: `2` days
 - donations: `$0.00`
