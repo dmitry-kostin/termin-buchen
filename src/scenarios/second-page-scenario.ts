@@ -57,7 +57,7 @@ export class SecondPageScenario {
   }
 
   static async selectApplyCategory(wd: WebDriver) {
-    const text = 'Economic activity';
+    const text = 'Educational purposes';
     const economicActivityLabel = await Utils.waitUntilVisible(
       wd,
       // economic activity
@@ -70,7 +70,7 @@ export class SecondPageScenario {
   }
 
   static async selectApplyReason(wd: WebDriver) {
-    const text = 'EU Blue Card / Blaue Karte EU (sect. 18b para. 2)';
+    const text = 'Residence permit for attending a language course (sect. 16f para. 1)';
     const blueCardInput = await Utils.waitUntilVisible(
       wd,
       // EU Blue card
