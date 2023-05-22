@@ -8,8 +8,7 @@ export const createDriver = async (): Promise<WebDriver> => {
     // '--headless',
     '--no-sandbox',
     '--disable-blink-features=AutomationControlled',
-    '--disable-dev-shm-usage',
-    '--disable-notifications'
+    '--disable-dev-shm-usage'
   );
   options.setAlertBehavior(UserPromptHandler.ACCEPT);
   return new Builder().forBrowser('chrome').setChromeOptions(options).build();
