@@ -5,5 +5,8 @@ export const config = {
   numberOfPeople: process.env.NUMBER_OF_PEOPLE || 'two people',
   liveWith: process.env.LIVE_WITH || 'yes',
   partnerCitizenship: process.env.PARTNER_CITIZENSHIP || 'Russian Federation',
-  reason: process.env.REASON || 'apply',
+  purpose: process.env.PURPOSE || 'apply',
+  category: process.env.CATEGORY || undefined,
+  reason:
+    process.env.REASON || 'EU Blue Card / Blaue Karte EU (sect. 18b para. 2)',
 };

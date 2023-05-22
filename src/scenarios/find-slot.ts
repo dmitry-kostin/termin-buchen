@@ -21,9 +21,9 @@ export const findSlot = async (wd: WebDriver): Promise<boolean> => {
     config.liveWith,
     config.partnerCitizenship
   );
-  await SecondPageScenario.selectApplyPurpose(wd, config.reason);
-  await SecondPageScenario.selectApplyCategory(wd);
-  await SecondPageScenario.selectApplyReason(wd);
+  await SecondPageScenario.selectApplyPurpose(wd, config.purpose);
+  await SecondPageScenario.selectApplyCategory(wd, config.category);
+  await SecondPageScenario.selectApplyReason(wd, config.reason);
   await SecondPageScenario.waitForLoadingScreen(wd);
   await SecondPageScenario.clickNext(wd);
 

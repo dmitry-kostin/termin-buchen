@@ -43,39 +43,36 @@ export class SecondPageScenario {
     await citizenshipPartner.selectByVisibleText(to);
   }
 
-  static async selectApplyPurpose(wd: WebDriver, reason: string) {
-    let text = 'Apply for a residence title';
-    if (reason === 'extend') {
-      text = 'Extend a residence title';
-    }
+  static async selectApplyPurpose(wd: WebDriver, purpose: string) {
     const applyForLabel = await Utils.waitUntilVisible(
       wd,
-      By.xpath(`//*[@id="xi-div-30"]//label[normalize-space()='${text}']`)
+      By.xpath(`//*[@id="xi-div-30"]//label[normalize-space()='${purpose}']`)
     );
     await wd.sleep(400);
     await applyForLabel.click();
   }
 
-  static async selectApplyCategory(wd: WebDriver) {
-    const text = 'Economic activity';
+  static async selectApplyCategory(wd: WebDriver, category?: string) {
+    if (!category) {
+      return;
+    }
     const economicActivityLabel = await Utils.waitUntilVisible(
       wd,
       // economic activity
       By.xpath(
-        `//*[@class="level1-content"]//label[normalize-space()="${text}"]`
+        `//*[@class="level1-content"]//label[normalize-space()="${category}"]`
       )
     );
     await wd.sleep(400);
     await economicActivityLabel.click();
   }
 
-  static async selectApplyReason(wd: WebDriver) {
-    const text = 'EU Blue Card / Blaue Karte EU (sect. 18b para. 2)';
+  static async selectApplyReason(wd: WebDriver, reason: string) {
     const blueCardInput = await Utils.waitUntilVisible(
       wd,
       // EU Blue card
       By.xpath(
-        `//*[@class="level2-content"]//label[normalize-space()="${text}"]`
+        `//*[@class="level2-content"]//label[normalize-space()="${reason}"]`
       )
     );
     await wd.sleep(400);
