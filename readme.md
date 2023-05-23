@@ -29,6 +29,55 @@ It should send 2 type of notifications when program terminates:
 - the one when unexpected error happens
 - the other one is possible success
 
+### Setup for dummies
+
+1. Pre-requirements:
+
+You will need to install [nodejs](https://nodejs.org/en); google for something like `how to install nodejs for macos` and you should be fine;
+Current node version: `18.16.0`
+Open terminal and confirm that you have node installed: 
+```
+node -v
+npm -v
+```
+
+2. Execute following commands in terminal to install script:
+
+```bash
+git clone https://github.com/dmitry-kostin/termin-buchen
+cd termin-buchen
+npm i
+```
+
+3. make a copy of `.env.example` file, rename this copy to `.env` and fill with your variables. You should be able to see two files laying nearby: `.env.example` and your new `.env`
+
+`.env` file example:
+```
+MAIN_CITIZENSHIP=Russian Federation
+NUMBER_OF_PEOPLE=one person
+LIVE_WITH=yes
+PARTNER_CITIZENSHIP=Germany
+REASON=family
+```
+
+4. execute following to run automation: `npm run start`. Browser window opens - don't touch it, just leave it in the background. In terminal you should be able to see basic logging records. Allow notifications in notification center and keep an eye on notifications.
+
+Termin not found, another attempt in 60 seconds:
+```
+[runner]: iteration 1 result: false`
+```
+
+Termin found – take the window from background and continue booking your termin.
+```
+[runner]: iteration 1 result: true`
+```
+
+Important notes:
+- have first/last name, email, birth date and your visa number ready
+- if you won't be able to fill all of this info fast enough - slot would be invalidated and you'll get an error at the end
+- new slots are usually getting opened around the same time every day
+
+
 ### Donate 
 
 If you had any luck with finding a slot using this script – feel free to donate me. I appreciate any help!
