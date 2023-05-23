@@ -37,6 +37,6 @@ If you had any luck with finding a slot using this script – feel free to donat
 
 Current stats: 
 
-- found slots for `3` families 
+- found slots for `4` families 
 - average time to find a slot: `2` days
 - donations: `$0.00`
