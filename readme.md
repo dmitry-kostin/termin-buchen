@@ -2,7 +2,7 @@
 
 Script for automation of getting a termin / booking on https://otv.verwalt-berlin.de
 
-Script doesn't book anything for you - it just helps to find an open slot by attempting to register every 2 min and
+Script doesn't book anything for you - it just helps to find an open slot by attempting to register every 1 min and
 leaves the browser open so you can continue the process in the same window.
 
 You will receive a notification when you have a possible hit so it's probably good idea to allow notification in system
