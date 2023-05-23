@@ -3,6 +3,8 @@ import {Utils} from '../utils';
 import {config} from '../config';
 import {SecondPageScenario} from './second-page-scenario';
 import {FirstPageScenario} from './first-page-scenario';
+import {FamilyScenario} from './family-scenario';
+import {EconomicActivityScenario} from './economic-activity-scenario';
 
 /**
  * Returns true if slot found
@@ -22,8 +24,13 @@ export const findSlot = async (wd: WebDriver): Promise<boolean> => {
     config.partnerCitizenship
   );
   await SecondPageScenario.selectApplyPurpose(wd, config.reason);
-  await SecondPageScenario.selectApplyCategory(wd);
-  await SecondPageScenario.selectApplyReason(wd);
+  if (config.reason === 'family') {
+    await FamilyScenario.selectApplyCategory(wd);
+    await FamilyScenario.selectApplyReason(wd);
+  } else {
+    await EconomicActivityScenario.selectApplyCategory(wd);
+    await EconomicActivityScenario.selectApplyReason(wd);
+  }
   await SecondPageScenario.waitForLoadingScreen(wd);
   await SecondPageScenario.clickNext(wd);
 

@@ -56,45 +56,17 @@ export class SecondPageScenario {
     await applyForLabel.click();
   }
 
-  static async selectApplyCategory(wd: WebDriver) {
-    const text = 'Economic activity';
-    const economicActivityLabel = await Utils.waitUntilVisible(
-      wd,
-      // economic activity
-      By.xpath(
-        `//*[@class="level1-content"]//label[normalize-space()="${text}"]`
-      )
-    );
-    await wd.sleep(400);
-    await economicActivityLabel.click();
-  }
-
-  static async selectApplyReason(wd: WebDriver) {
-    const text = 'EU Blue Card / Blaue Karte EU (sect. 18b para. 2)';
-    const blueCardInput = await Utils.waitUntilVisible(
-      wd,
-      // EU Blue card
-      By.xpath(
-        `//*[@class="level2-content"]//label[normalize-space()="${text}"]`
-      )
-    );
-    await wd.sleep(400);
-    await blueCardInput.click();
-  }
-
   static async clickNext(wd: WebDriver) {
-    const nextButton = await Utils.waitUntilVisible(
-      wd,
-      By.xpath('//*[@id="applicationForm:managedForm:proceed"]')
-    );
+    const nextButtonPath = '//*[@id="applicationForm:managedForm:proceed"]';
+    const button = await Utils.waitUntilVisible(wd, By.xpath(nextButtonPath));
     await wd.sleep(400);
-    await nextButton.click();
-    // wait for page reload
-    await wd.wait(until.stalenessOf(nextButton), DEFAULT_TIMEOUT);
+    await button.click();
   }
 
   static async waitForLoadingScreen(wd: WebDriver) {
     const loading = await Utils.waitUntilVisible(wd, By.className('loading'));
+    await wd.wait(until.elementIsNotVisible(loading), DEFAULT_TIMEOUT);
+    await wd.sleep(400);
     await wd.wait(until.elementIsNotVisible(loading), DEFAULT_TIMEOUT);
     await wd.sleep(400);
   }

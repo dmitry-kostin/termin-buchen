@@ -3,6 +3,9 @@ import {Utils} from '../utils';
 
 export class FirstPageScenario {
   static async visitPageAndChangeLanguage(wd: WebDriver) {
+    await wd.executeScript(`
+    document.activeElement.setAttribute('data-can-navigate', '1');
+    `);
     await wd.get(
       'https://otv.verwalt-berlin.de/ams/TerminBuchen/wizardng?sprachauswahl=en'
     );

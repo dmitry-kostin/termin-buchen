@@ -1,6 +1,5 @@
 import {findSlot} from './scenarios/find-slot';
 import {error, WebDriver} from 'selenium-webdriver';
-import {CHECK_INTERVAL} from './const';
 import {createDriver} from './driver';
 import {Telegram} from './notifications/telegram';
 import {config} from './config';
@@ -32,8 +31,8 @@ async function runner(
       onSuccess();
       return;
     }
+    await wd.sleep(config.checkInterval);
     await wd.manage().deleteAllCookies();
-    await wd.sleep(CHECK_INTERVAL);
     i++;
   }
 }

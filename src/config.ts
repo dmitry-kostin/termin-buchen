@@ -1,3 +1,5 @@
+import {CHECK_INTERVAL} from './const';
+
 export const config = {
   telegramToken: process.env.TELEGRAM_TOKEN || '',
   telegramChatID: parseInt(process.env.TELEGRAM_CHATID || '0', 10),
@@ -6,4 +8,8 @@ export const config = {
   liveWith: process.env.LIVE_WITH || 'yes',
   partnerCitizenship: process.env.PARTNER_CITIZENSHIP || 'Russian Federation',
   reason: process.env.REASON || 'apply',
+  checkInterval: parseInt(
+    process.env.CHECK_INTERVAL || CHECK_INTERVAL.toString(),
+    10
+  ),
 };
