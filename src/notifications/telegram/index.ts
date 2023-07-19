@@ -25,6 +25,8 @@ export class Telegram {
           `<code>TELEGRAM_CHATID=${chatId}</code>`,
           {parse_mode: 'HTML'}
         );
+        console.log('Your chat id is below, copy-paste it to the .env file');
+        console.log(`TELEGRAM_CHATID=${chatId}`);
         await bot.stopPolling();
         resolve();
       });
