@@ -55,14 +55,17 @@ const startAutomation = async () => {
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const getMyChatId = async () => {
-  await Telegram.__getMyChatId(config.telegramToken);
+  await Telegram.getMyChatId(config.telegramToken);
 };
 
 function main() {
+  const args = process.argv.slice(2);
+  if (args.length && args[0] === 'telegram') {
+    getMyChatId().catch();
+    return;
+  }
   startAutomation().catch();
-  // getMyChatId().catch();
 }
 
 main();

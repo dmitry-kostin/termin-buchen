@@ -6,7 +6,7 @@ Script doesn't book anything for you - it just helps to find an open slot by att
 leaves the browser open so you can continue the process in the same window.
 
 You will receive a notification when you have a possible hit so it's probably good idea to allow notification in system
-settings. Also telegram notifications are available but you need to setup keys on your own unfortunately.
+settings. Also telegram notifications are available but you need to setup keys [on your own unfortunately](./telegram.md).
 
 ### Setup
 

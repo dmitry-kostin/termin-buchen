@@ -10,8 +10,24 @@ export class Telegram {
     await bot.sendMessage(chatId, text);
   };
 
-  static __getMyChatId = async (token: string) => {
+  static getMyChatId = async (token: string) => {
     const bot = new TelegramBot(token, {polling: true});
-    bot.on('message', msg => console.log(`my chatID: ${msg.chat.id}`));
+    await bot.setMyCommands([{command: '/me', description: 'Get my chat id'}]);
+    return new Promise<void>(resolve => {
+      bot.on('message', async msg => {
+        const chatId = msg.chat.id;
+        await bot.sendMessage(
+          chatId,
+          'Your chat id is below, copy-paste it to the .env file'
+        );
+        await bot.sendMessage(
+          chatId,
+          `<code>TELEGRAM_CHATID=${chatId}</code>`,
+          {parse_mode: 'HTML'}
+        );
+        await bot.stopPolling();
+        resolve();
+      });
+    });
   };
 }
