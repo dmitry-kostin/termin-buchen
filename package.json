@@ -2,12 +2,12 @@
   "name": "termin-buchen",
   "version": "1.0.0",
   "devDependencies": {
-    "@types/node": "^20.4.2",
+    "@types/node": "^20.5.9",
     "@types/node-notifier": "^8.0.2",
-    "@types/node-telegram-bot-api": "^0.61.6",
-    "@types/selenium-webdriver": "^4.1.15",
-    "gts": "^3.1.1",
-    "typescript": "~5.1.6"
+    "@types/node-telegram-bot-api": "^0.61.7",
+    "@types/selenium-webdriver": "^4.1.16",
+    "gts": "^5.0.1",
+    "typescript": "~5.2.2"
   },
   "scripts": {
     "start": "npm run prepare && node -r dotenv/config build/src/index.js",
@@ -21,10 +21,10 @@
     "posttest": "npm run lint"
   },
   "dependencies": {
-    "chromedriver": "^114.0.3",
+    "chromedriver": "^116.0.0",
     "dotenv": "^16.3.1",
     "node-notifier": "^10.0.1",
     "node-telegram-bot-api": "^0.61.0",
-    "selenium-webdriver": "^4.10.0"
+    "selenium-webdriver": "^4.12.0"
   }
 }
