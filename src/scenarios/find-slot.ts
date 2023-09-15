@@ -1,10 +1,8 @@
-import {By, WebDriver} from 'selenium-webdriver';
-import {Utils} from '../utils';
-import {config} from '../config';
-import {SecondPageScenario} from './second-page-scenario';
-import {FirstPageScenario} from './first-page-scenario';
-import {FamilyScenario} from './family-scenario';
-import {EconomicActivityScenario} from './economic-activity-scenario';
+import { By, WebDriver } from 'selenium-webdriver';
+import { config } from '../config';
+import { Utils } from '../utils';
+import { FirstPageScenario } from './first-page-scenario';
+import { SecondPageScenario } from './second-page-scenario';
 
 /**
  * Returns true if slot found
@@ -23,14 +21,9 @@ export const findSlot = async (wd: WebDriver): Promise<boolean> => {
     config.liveWith,
     config.partnerCitizenship
   );
-  await SecondPageScenario.selectApplyPurpose(wd, config.reason);
-  if (config.reason === 'family') {
-    await FamilyScenario.selectApplyCategory(wd);
-    await FamilyScenario.selectApplyReason(wd);
-  } else {
-    await EconomicActivityScenario.selectApplyCategory(wd);
-    await EconomicActivityScenario.selectApplyReason(wd);
-  }
+  await SecondPageScenario.selectApplyCategory(wd, config.category);
+  await SecondPageScenario.selectApplyReason(wd, config.reason);
+  await SecondPageScenario.selectApplyPurpose(wd, config.purpose);
   await SecondPageScenario.waitForLoadingScreen(wd);
   await SecondPageScenario.clickNext(wd);
 

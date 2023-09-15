@@ -1,5 +1,6 @@
 import {By, until, WebDriver} from 'selenium-webdriver';
 import {Select} from 'selenium-webdriver/lib/select';
+import {ApplyCategory, ApplyPurpose, ApplyReason} from '../config';
 import {DEFAULT_TIMEOUT} from '../const';
 import {Utils} from '../utils';
 
@@ -8,6 +9,7 @@ export class SecondPageScenario {
     const citizenshipSelector = new Select(
       await Utils.waitUntilVisible(wd, By.xpath('//*[@id="xi-sel-400"]'))
     );
+    await citizenshipSelector.element.click();
     await wd.sleep(400);
     await citizenshipSelector.selectByVisibleText(to);
   }
@@ -43,17 +45,68 @@ export class SecondPageScenario {
     await citizenshipPartner.selectByVisibleText(to);
   }
 
-  static async selectApplyPurpose(wd: WebDriver, reason: string) {
-    let text = 'Apply for a residence title';
-    if (reason === 'extend') {
+  static async selectApplyCategory(wd: WebDriver, category: ApplyCategory) {
+    let text = '';
+    if (category === 'extend') {
       text = 'Extend a residence title';
+    } else if (category === 'apply') {
+      text = 'Apply for a residence title';
     }
-    const applyForLabel = await Utils.waitUntilVisible(
+    if (!text) {
+      throw new Error('Apply category is not valid');
+    }
+    const label = await Utils.waitUntilVisible(
       wd,
       By.xpath(`//*[@id="xi-div-30"]//label[normalize-space()='${text}']`)
     );
     await wd.sleep(400);
-    await applyForLabel.click();
+    await label.click();
+  }
+
+  static async selectApplyReason(wd: WebDriver, reason: ApplyReason) {
+    let text = '';
+    if (reason === 'economic') {
+      text = 'Economic activity';
+    } else if (reason === 'family') {
+      text = 'Family reasons';
+    }
+    if (!text) {
+      throw new Error('Apply reason is not valid');
+    }
+    const label = await Utils.waitUntilVisible(
+      wd,
+      // economic activity
+      By.xpath(
+        `//*[@class="level1-content"]//label[normalize-space()="${text}"]`
+      )
+    );
+    await wd.sleep(400);
+    await label.click();
+  }
+
+  static async selectApplyPurpose(wd: WebDriver, purpose: ApplyPurpose) {
+    let text = '';
+    if (purpose === '18p2') {
+      text = 'EU Blue Card / Blaue Karte EU (sect. 18b para. 2)';
+    } else if (purpose === '21p5') {
+      text =
+        'Residence permit for a freelance employment - Issuance (sect. 21 para. 5)';
+    } else if (purpose === 'sect28') {
+      text =
+        'Residence permit for spouses, parents and children of German citizens (sect. 28)';
+    }
+    if (!text) {
+      throw new Error('Apply reason is not valid');
+    }
+    const input = await Utils.waitUntilVisible(
+      wd,
+      // EU Blue card
+      By.xpath(
+        `//*[@class="level2-content"]//label[normalize-space()="${text}"]`
+      )
+    );
+    await wd.sleep(400);
+    await input.click();
   }
 
   static async clickNext(wd: WebDriver) {

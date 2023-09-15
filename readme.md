@@ -57,8 +57,12 @@ MAIN_CITIZENSHIP=Russian Federation
 NUMBER_OF_PEOPLE=one person
 LIVE_WITH=yes
 PARTNER_CITIZENSHIP=Germany
-REASON=family
+CATEGORY=apply
+REASON=economic
+PURPOSE=21p5
 ```
+
+If you need to find a lost to your specific use-case: just [let me know in issues section](https://github.com/dmitry-kostin/termin-buchen/issues) and I'll try to help. 
 
 4. execute following to run automation: `npm run start`. Browser window opens - don't touch it, just leave it in the background. In terminal you should be able to see basic logging records. Allow notifications in notification center and keep an eye on notifications.
 
