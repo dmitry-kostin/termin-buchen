@@ -16,7 +16,10 @@ settings. Also telegram notifications are available but you need to setup keys [
 ### Config
 
 Create `.env` file from `.env.example` and fill variables you want script to run with. Values there are text
-representation of select options on a website.
+representation of select options on a website. 
+
+If you can not find your **specific use-case** and want to add support for it: 
+just [let me know in issues section](https://github.com/dmitry-kostin/termin-buchen/issues) and I'll try to help. 
 
 ### Run
 
@@ -61,8 +64,6 @@ CATEGORY=apply
 REASON=economic
 PURPOSE=21p5
 ```
-
-If you need to find a lost to your specific use-case: just [let me know in issues section](https://github.com/dmitry-kostin/termin-buchen/issues) and I'll try to help. 
 
 4. execute following to run automation: `npm run start`. Browser window opens - don't touch it, just leave it in the background. In terminal you should be able to see basic logging records. Allow notifications in notification center and keep an eye on notifications.
 
