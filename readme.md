@@ -62,7 +62,7 @@ LIVE_WITH=yes
 PARTNER_CITIZENSHIP=Germany
 CATEGORY=apply
 REASON=economic
-PURPOSE=21p5
+PURPOSE=18p2
 ```
 
 4. execute following to run automation: `npm run start`. Browser window opens - don't touch it, just leave it in the background. In terminal you should be able to see basic logging records. Allow notifications in notification center and keep an eye on notifications.
