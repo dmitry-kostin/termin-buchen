@@ -9,8 +9,15 @@ export class SecondPageScenario {
     const citizenshipSelector = new Select(
       await Utils.waitUntilVisible(wd, By.xpath('//*[@id="xi-sel-400"]'))
     );
-    await citizenshipSelector.element.click();
     await wd.sleep(400);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    for await (const i of Array(5)) {
+      const opts = await citizenshipSelector.getOptions();
+      if (opts.length === 184) {
+        break;
+      }
+      await wd.sleep(200);
+    }
     await citizenshipSelector.selectByVisibleText(to);
   }
 
