@@ -1,8 +1,8 @@
-import { By, WebDriver } from 'selenium-webdriver';
-import { config } from '../config';
-import { Utils } from '../utils';
-import { FirstPageScenario } from './first-page-scenario';
-import { SecondPageScenario } from './second-page-scenario';
+import {By, WebDriver} from 'selenium-webdriver';
+import {config} from '../config';
+import {Utils} from '../utils';
+import {FirstPageScenario} from './first-page-scenario';
+import {SecondPageScenario} from './second-page-scenario';
 
 /**
  * Returns true if slot found
@@ -28,6 +28,7 @@ export const findSlot = async (wd: WebDriver): Promise<boolean> => {
   await SecondPageScenario.clickNext(wd);
 
   try {
+    // const dateSelector = '//*[@id="xi-fs-2"]';
     const box = await Utils.waitUntilVisible(
       wd,
       By.xpath('//*[@id="messagesBox"]/ul/li')

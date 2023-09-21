@@ -49,6 +49,14 @@ export class SecondPageScenario {
       await Utils.waitUntilVisible(wd, By.xpath('//*[@id="xi-sel-428"]'))
     );
     await wd.sleep(400);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    for await (const i of Array(5)) {
+      const opts = await citizenshipPartner.getOptions();
+      if (opts.length === 184) {
+        break;
+      }
+      await wd.sleep(200);
+    }
     await citizenshipPartner.selectByVisibleText(to);
   }
 
@@ -58,6 +66,8 @@ export class SecondPageScenario {
       text = 'Extend a residence title';
     } else if (category === 'apply') {
       text = 'Apply for a residence title';
+    } else if (category === 'apply_permanent') {
+      text = 'Apply for a permanent settlement permit';
     }
     if (!text) {
       throw new Error('Apply category is not valid');
@@ -76,6 +86,8 @@ export class SecondPageScenario {
       text = 'Economic activity';
     } else if (reason === 'family') {
       text = 'Family reasons';
+    } else if (reason === 'empty') {
+      return;
     }
     if (!text) {
       throw new Error('Apply reason is not valid');
@@ -101,6 +113,9 @@ export class SecondPageScenario {
     } else if (purpose === 'sect28') {
       text =
         'Residence permit for spouses, parents and children of German citizens (sect. 28)';
+    } else if (purpose === '28p2') {
+      text =
+        'Permanent settlement permit for family members of German citizens (sect. 28 para. 2)';
     }
     if (!text) {
       throw new Error('Apply reason is not valid');

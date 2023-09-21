@@ -6,15 +6,15 @@ export class FirstPageScenario {
     await wd.executeScript(`
     document.activeElement.setAttribute('data-can-navigate', '1');
     `);
-    await wd.get(
-      'https://otv.verwalt-berlin.de/ams/TerminBuchen/wizardng?sprachauswahl=en'
-    );
-    const changeLangBtn = await Utils.waitUntilVisible(
+    await wd.get('https://otv.verwalt-berlin.de/ams/TerminBuchen?lang=en');
+    const bookButton = await Utils.waitUntilVisible(
       wd,
-      By.xpath('//*[@id="xi-txt-11"]/p/a')
+      By.xpath(
+        '//*[@id="mainForm"]/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div[2]/a'
+      )
     );
     await wd.sleep(400);
-    await changeLangBtn.click();
+    await bookButton.click();
   }
 
   static async clickConsent(wd: WebDriver) {
