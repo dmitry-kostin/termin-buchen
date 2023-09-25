@@ -116,6 +116,9 @@ export class SecondPageScenario {
     } else if (purpose === '28p2') {
       text =
         'Permanent settlement permit for family members of German citizens (sect. 28 para. 2)';
+    } else if (purpose === '19c2') {
+      text =
+        'Residence permit for skilled employment in information and communication technology (sect. 19c para. 2)';
     }
     if (!text) {
       throw new Error('Apply reason is not valid');

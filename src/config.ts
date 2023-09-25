@@ -2,7 +2,7 @@ import {CHECK_INTERVAL} from './const';
 
 export type ApplyCategory = 'apply' | 'extend' | 'apply_permanent';
 export type ApplyReason = 'economic' | 'family' | 'empty';
-export type ApplyPurpose = '18p2' | '21p5' | 'sect28' | '28p2';
+export type ApplyPurpose = '18p2' | '21p5' | 'sect28' | '28p2' | '19c2';
 
 interface Config {
   telegramToken: string;
@@ -50,7 +50,8 @@ export const config: Config = (() => {
         process.env.PURPOSE !== '18p2' &&
         process.env.PURPOSE !== '21p5' &&
         process.env.PURPOSE !== 'sect28' &&
-        process.env.PURPOSE !== '28p2'
+        process.env.PURPOSE !== '28p2' &&
+        process.env.PURPOSE !== '19c2'
       ) {
         throw new Error('PURPOSE config value is unknown');
       }
