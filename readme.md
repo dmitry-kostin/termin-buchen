@@ -54,7 +54,7 @@ npm i
 
 3. make a copy of `.env.example` file, rename this copy to `.env` and fill with your variables. You should be able to see two files laying nearby: `.env.example` and your new `.env`
 
-`.env` file example:
+`.env` file example for applying blue card:
 ```
 MAIN_CITIZENSHIP=Russian Federation
 NUMBER_OF_PEOPLE=one person
@@ -63,6 +63,15 @@ PARTNER_CITIZENSHIP=Germany
 CATEGORY=apply
 REASON=economic
 PURPOSE=18p2
+```
+
+`.env` file example for transfer passport to new blue card:
+```
+MAIN_CITIZENSHIP=Russian Federation
+NUMBER_OF_PEOPLE=one person
+LIVE_WITH=no
+CATEGORY=transfer
+PURPOSE=transfer_blue_card_eu
 ```
 
 4. execute following to run automation: `npm run start`. Browser window opens - don't touch it, just leave it in the background. In terminal you should be able to see basic logging records. Allow notifications in notification center and keep an eye on notifications.
