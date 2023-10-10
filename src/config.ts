@@ -2,7 +2,19 @@ import {CHECK_INTERVAL} from './const';
 
 export type ApplyCategory = 'apply' | 'extend' | 'transfer' | 'apply_permanent';
 export type ApplyReason = 'economic' | 'family' | 'empty';
-export type ApplyPurpose = '18p2' | '21p5' | 'sect28' | '28p2'  | '19c2' | 'transfer_blue_card_eu' | 'transfer_permanent_settlement_permit' | 'transfer_eu_long_term_residence_permit' | 'transfer_residence_card' | 'transfer_permanent_residence_card' | 'transfer_residence_document_gb' | 'transfer_residence_permit';
+export type ApplyPurpose =
+  | '18p2'
+  | '21p5'
+  | 'sect28'
+  | '28p2'
+  | '19c2'
+  | 'transfer_blue_card_eu'
+  | 'transfer_permanent_settlement_permit'
+  | 'transfer_eu_long_term_residence_permit'
+  | 'transfer_residence_card'
+  | 'transfer_permanent_residence_card'
+  | 'transfer_residence_document_gb'
+  | 'transfer_residence_permit';
 
 interface Config {
   telegramToken: string;

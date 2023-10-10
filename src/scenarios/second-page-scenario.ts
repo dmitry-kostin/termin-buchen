@@ -106,23 +106,33 @@ export class SecondPageScenario {
   }
 
   static async selectApplyPurpose(wd: WebDriver, purpose: ApplyPurpose) {
-    let purposeToText = {
+    const purposeToText: {[key: string]: string} = {
       '18p2': 'EU Blue Card / Blaue Karte EU (sect. 18b para. 2)',
-      '21p5': 'Residence permit for a freelance employment - Issuance (sect. 21 para. 5)',
-      'sect28': 'Residence permit for spouses, parents and children of German citizens (sect. 28)',
-      '28p2': 'Permanent settlement permit for family members of German citizens (sect. 28 para. 2)',
-      '19c2': 'Residence permit for skilled employment in information and communication technology (sect. 19c para. 2)',
+      '21p5':
+        'Residence permit for a freelance employment - Issuance (sect. 21 para. 5)',
+      sect28:
+        'Residence permit for spouses, parents and children of German citizens (sect. 28)',
+      '28p2':
+        'Permanent settlement permit for family members of German citizens (sect. 28 para. 2)',
+      '19c2':
+        'Residence permit for skilled employment in information and communication technology (sect. 19c para. 2)',
 
       // transfer purposes
-      'transfer_blue_card_eu': 'Transfer of a Blue Card EU to a new passport',
-      'transfer_permanent_settlement_permit': 'Transfer of a permanent settlement permit or an EU long-term residence permit to a new passport',
-      'transfer_eu_long_term_residence_permit': 'Transfer of a permanent settlement permit or an EU long-term residence permit to a new passport',
-      'transfer_residence_card': 'Transfer of a residence card or permanent residence card to a new passport',
-      'transfer_permanent_residence_card': 'Transfer of a residence card or permanent residence card to a new passport',
-      'transfer_residence_document_gb': 'Transfer of a Residence document-GB to a new passport',
-      'transfer_residence_permit': 'Transfer of a residence permit to a new passport',
+      transfer_blue_card_eu: 'Transfer of a Blue Card EU to a new passport',
+      transfer_permanent_settlement_permit:
+        'Transfer of a permanent settlement permit or an EU long-term residence permit to a new passport',
+      transfer_eu_long_term_residence_permit:
+        'Transfer of a permanent settlement permit or an EU long-term residence permit to a new passport',
+      transfer_residence_card:
+        'Transfer of a residence card or permanent residence card to a new passport',
+      transfer_permanent_residence_card:
+        'Transfer of a residence card or permanent residence card to a new passport',
+      transfer_residence_document_gb:
+        'Transfer of a Residence document-GB to a new passport',
+      transfer_residence_permit:
+        'Transfer of a residence permit to a new passport',
     };
-    let text = purposeToText[purpose];
+    const text = purposeToText[purpose];
     if (!text) {
       throw new Error('Apply reason is not valid');
     }
