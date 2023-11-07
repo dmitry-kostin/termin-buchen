@@ -1,7 +1,7 @@
 import {CHECK_INTERVAL} from './const';
 
 export type ApplyCategory = 'apply' | 'extend' | 'transfer' | 'apply_permanent';
-export type ApplyReason = 'economic' | 'family' | 'empty';
+export type ApplyReason = 'economic' | 'family' | 'educational' | 'empty';
 export type ApplyPurpose =
   | '18p2'
   | '21p5'
@@ -14,7 +14,16 @@ export type ApplyPurpose =
   | 'transfer_residence_card'
   | 'transfer_permanent_residence_card'
   | 'transfer_residence_document_gb'
-  | 'transfer_residence_permit';
+  | 'transfer_residence_permit'
+  | 'edu_16f_1'
+  | 'edu_16a'
+  | 'edu_16b_1'
+  | 'edu_16b'
+  | 'edu_16d_1'
+  | 'edu_16d_3'
+  | 'edu_16a_vocational'
+  | 'edu_19c_1'
+  | 'edu_16f';
 
 interface Config {
   telegramToken: string;
@@ -52,6 +61,7 @@ export const config: Config = (() => {
       if (
         process.env.REASON !== 'economic' &&
         process.env.REASON !== 'family' &&
+        process.env.REASON !== 'educational' &&
         process.env.REASON !== 'empty'
       ) {
         throw new Error('REASON config value is unknown');
@@ -71,7 +81,16 @@ export const config: Config = (() => {
         process.env.PURPOSE !== 'transfer_residence_card' &&
         process.env.PURPOSE !== 'transfer_permanent_residence_card' &&
         process.env.PURPOSE !== 'transfer_residence_document_gb' &&
-        process.env.PURPOSE !== 'transfer_residence_permit'
+        process.env.PURPOSE !== 'transfer_residence_permit' &&
+        process.env.PURPOSE !== 'edu_16f_1' &&
+        process.env.PURPOSE !== 'edu_16a' &&
+        process.env.PURPOSE !== 'edu_16b_1' &&
+        process.env.PURPOSE !== 'edu_16b' &&
+        process.env.PURPOSE !== 'edu_16d_1' &&
+        process.env.PURPOSE !== 'edu_16d_3' &&
+        process.env.PURPOSE !== 'edu_16a_vocational' &&
+        process.env.PURPOSE !== 'edu_19c_1' &&
+        process.env.PURPOSE !== 'edu_16f'
       ) {
         throw new Error('PURPOSE config value is unknown');
       }

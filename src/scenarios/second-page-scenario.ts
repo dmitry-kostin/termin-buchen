@@ -83,14 +83,15 @@ export class SecondPageScenario {
   }
 
   static async selectApplyReason(wd: WebDriver, reason: ApplyReason) {
-    let text = '';
-    if (reason === 'economic') {
-      text = 'Economic activity';
-    } else if (reason === 'family') {
-      text = 'Family reasons';
-    } else if (reason === 'empty') {
+    const reasonToText: {[key: string]: string} = {
+      economic: 'Economic activity',
+      family: 'Family reasons',
+      educational: 'Educational purposes',
+    };
+    if (reason === 'empty') {
       return;
     }
+    const text = reasonToText[reason];
     if (!text) {
       throw new Error('Apply reason is not valid');
     }
@@ -131,10 +132,24 @@ export class SecondPageScenario {
         'Transfer of a Residence document-GB to a new passport',
       transfer_residence_permit:
         'Transfer of a residence permit to a new passport',
+      edu_16f_1:
+        'Residence permit for attending a language course (sect. 16f para. 1)',
+      edu_16a: 'Residence permit for in-service training (sect. 16a)',
+      edu_16b_1: 'Residence permit for study preparation (sect. 16b para. 1)',
+      edu_16b: 'Residence permit for the purpose of studying (sect. 16b)',
+      edu_16d_1:
+        'Residence permit for the recognition of a foreign professional qualification in a non-regulated profession (sect. 16d para. 1)',
+      edu_16d_3:
+        'Residence permit for the recognition of a foreign professional qualification in a non-regulated profession (§ 16d para. 3)',
+      edu_16a_vocational:
+        'Residence permit for vocational training (sect. 16a)',
+      edu_19c_1: 'Residence permit to start a traineeship (sect. 19c para. 1)',
+      edu_16f:
+        'Residence permit to take part in a student exchange or to attend school (sect. 16f)',
     };
     const text = purposeToText[purpose];
     if (!text) {
-      throw new Error('Apply reason is not valid');
+      throw new Error('Apply purpose is not valid');
     }
     const input = await Utils.waitUntilVisible(
       wd,
