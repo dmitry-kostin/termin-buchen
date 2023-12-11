@@ -1,5 +1,8 @@
 ## Blue card Berlin – Termin script automation for Ausländerbehörde
 
+> [!IMPORTANT]  
+Update: Following recent changes by the Ausländerbehörde, applications for Blue Cards must now be submitted exclusively through thier new application form, [more details here](https://service.berlin.de/dienstleistung/324659/en/). However, services for extending, applying for, or transferring a Blue Card, as well as other residence permits and ID cards, remain available through this service.
+
 Script for automation of getting a termin / booking on https://otv.verwalt-berlin.de
 
 Script doesn't book anything for you - it just helps to find an open slot by attempting to register every 1 min and
