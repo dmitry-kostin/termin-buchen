@@ -118,6 +118,10 @@ export class SecondPageScenario {
       '19c2':
         'Residence permit for skilled employment in information and communication technology (sect. 19c para. 2)',
 
+      // family purposes
+      family_blue_card_29_32:
+        'Residence permit for spouses and children of holders of an EU Blue Card (sect. 29-32)',
+
       // transfer purposes
       transfer_blue_card_eu: 'Transfer of a Blue Card EU to a new passport',
       transfer_permanent_settlement_permit:
