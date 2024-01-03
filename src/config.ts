@@ -8,6 +8,7 @@ export type ApplyPurpose =
   | 'sect28'
   | '28p2'
   | '19c2'
+  | 'family_blue_card_29_32'
   | 'transfer_blue_card_eu'
   | 'transfer_permanent_settlement_permit'
   | 'transfer_eu_long_term_residence_permit'
@@ -75,6 +76,7 @@ export const config: Config = (() => {
         process.env.PURPOSE !== 'sect28' &&
         process.env.PURPOSE !== '28p2' &&
         process.env.PURPOSE !== '19c2' &&
+        process.env.PURPOSE !== 'family_blue_card_29_32' &&
         process.env.PURPOSE !== 'transfer_blue_card_eu' &&
         process.env.PURPOSE !== 'transfer_permanent_settlement_permit' &&
         process.env.PURPOSE !== 'transfer_eu_long_term_residence_permit' &&
