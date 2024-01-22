@@ -39,6 +39,9 @@ It should send 2 type of notifications when program terminates:
 
 ### Setup for dummies
 
+> [!NOTE]  
+If you like what this automation tool can do but are finding it tricky to set up because tech stuff isn't your thing, no worries at all! Just drop me a message on [my website](https://iwooky.me), and I'll try my best to assist and get you all sorted.
+
 1. Pre-requirements:
 
 You will need to install [nodejs](https://nodejs.org/en); google for something like `how to install nodejs for macos` and you should be fine;
@@ -94,7 +97,7 @@ Termin found – take the window from background and continue booking your termi
 ```
 
 Important notes:
-- have first/last name, email, birth date and your visa number ready
+- have first/last name, email, birth date and your visa number ready; if you replace - residence permit number;
 - if you won't be able to fill all of this info fast enough - slot would be invalidated and you'll get an error at the end
 - new slots are usually getting opened around the same time every day
 
