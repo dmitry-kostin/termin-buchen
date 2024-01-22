@@ -110,5 +110,5 @@ If you had any luck with finding a slot using this script – feel free to donat
 
 Current stats: 
 
-- found slots for `11` families 
-- average time to find a slot: `2` days
+- found slots for `14` families (who have expressed their gratitude);
+- average time to find a slot: `2` days;
