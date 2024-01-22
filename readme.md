@@ -19,7 +19,9 @@ settings. Also telegram notifications are available but you need to setup keys [
 ### Config
 
 Create `.env` file from `.env.example` and fill variables you want script to run with. Values there are text
-representation of select options on a website. 
+representation of select options on a website.
+
+Full list of `PURPOSE` codes can be found [here](https://raw.githubusercontent.com/dmitry-kostin/termin-buchen/main/src/config/apply-purpose.ts)
 
 If you can not find your **specific use-case** and want to add support for it: 
 just [let me know in issues section](https://github.com/dmitry-kostin/termin-buchen/issues) and I'll try to help. 
@@ -57,7 +59,7 @@ npm i
 
 3. make a copy of `.env.example` file, rename this copy to `.env` and fill with your variables. You should be able to see two files laying nearby: `.env.example` and your new `.env`
 
-`.env` file example for applying blue card:
+`.env` file example for applying for residence permit for qualified skilled workers with an academic education:
 ```
 MAIN_CITIZENSHIP=Russian Federation
 NUMBER_OF_PEOPLE=one person
@@ -65,7 +67,7 @@ LIVE_WITH=yes
 PARTNER_CITIZENSHIP=Germany
 CATEGORY=apply
 REASON=economic
-PURPOSE=18p2
+PURPOSE=18b
 ```
 
 `.env` file example for transfer passport to new blue card:
@@ -76,6 +78,8 @@ LIVE_WITH=no
 CATEGORY=transfer
 PURPOSE=transfer_blue_card_eu
 ```
+
+Full list of `PURPOSE` codes can be found [here](https://raw.githubusercontent.com/dmitry-kostin/termin-buchen/main/src/config/apply-purpose.ts)
 
 4. execute following to run automation: `npm run start`. Browser window opens - don't touch it, just leave it in the background. In terminal you should be able to see basic logging records. Allow notifications in notification center and keep an eye on notifications.
 
