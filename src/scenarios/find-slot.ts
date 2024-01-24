@@ -30,16 +30,14 @@ export const findSlot = async (wd: WebDriver): Promise<boolean> => {
   await SecondPageScenario.clickNext(wd);
 
   try {
-    // const dateSelector = '//*[@id="xi-fs-2"]';
-    const box = await Utils.waitUntilVisible(
+    await Utils.waitUntilVisible(
       wd,
-      By.xpath('//*[@id="messagesBox"]/ul/li')
+      By.xpath('//*[contains(text(),\'Appointment selection\')]')
     );
-    const text = await box.getText();
-    console.log(`[findSlot]: ${text}`);
-  } catch (e) {
-    console.error(`[findSlot]: error ${e}`);
+    console.log(`[findSlot]: appointment found`);
     return true;
+  } catch (e) {
+    console.error(`[findSlot]: appointment not found ${e}`);
+    return false;
   }
-  return false;
 };
