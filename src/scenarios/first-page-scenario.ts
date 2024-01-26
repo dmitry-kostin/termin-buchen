@@ -10,7 +10,7 @@ export class FirstPageScenario {
     const bookButton = await Utils.waitUntilVisible(
       wd,
       By.xpath(
-        '//*[@id="mainForm"]/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div[2]/a'
+        '//a[@href="/ams/TerminBuchen/wizardng?sprachauswahl=en"]'
       )
     );
     await wd.sleep(400);
