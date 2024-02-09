@@ -3,7 +3,7 @@ import {config} from '../config';
 import {Utils} from '../utils';
 import {FirstPageScenario} from './first-page-scenario';
 import {SecondPageScenario} from './second-page-scenario';
-import {SMALL_TIMEOUT} from "../const";
+import {ERR_MESSAGE_TIMEOUT} from "../const";
 
 /**
  * Returns true if slot found
@@ -49,7 +49,7 @@ async function existsErrorBox(wd: WebDriver) {
     const box = await Utils.waitUntilVisible(
       wd,
       By.xpath('//*[@id="messagesBox"]/ul/li'),
-      SMALL_TIMEOUT
+      ERR_MESSAGE_TIMEOUT
     );
     const text = await box.getText();
     console.error(`[findSlot]: messagesBox found. reason: ${text}`);
