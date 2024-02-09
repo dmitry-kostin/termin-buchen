@@ -4,13 +4,15 @@ import {DEFAULT_TIMEOUT} from './const';
 export class Utils {
   static waitUntilVisible = async (
     driver: WebDriver,
-    locator: Locator
+    locator: Locator,
+    timeout: number = DEFAULT_TIMEOUT,
   ): Promise<WebElement> => {
     let elem = await driver.wait(
       until.elementLocated(locator),
-      DEFAULT_TIMEOUT
+      timeout
     );
-    elem = await driver.wait(until.elementIsVisible(elem), DEFAULT_TIMEOUT);
+    elem = await driver.wait(until.elementIsVisible(elem), timeout);
     return elem;
   };
+
 }
