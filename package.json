@@ -25,6 +25,7 @@
     "dotenv": "^16.4.4",
     "node-notifier": "^10.0.1",
     "node-telegram-bot-api": "^0.64.0",
-    "selenium-webdriver": "^4.17.0"
+    "selenium-webdriver": "^4.17.0",
+    "yargs": "^17.7.2"
   }
 }
