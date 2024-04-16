@@ -46,6 +46,7 @@ export const config: Config = (() => {
         process.env.REASON !== 'economic' &&
         process.env.REASON !== 'family' &&
         process.env.REASON !== 'educational' &&
+        process.env.REASON !== 'humanitarian' &&
         process.env.REASON !== 'empty'
       ) {
         throw new Error('REASON config value is unknown');
