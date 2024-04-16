@@ -2,7 +2,12 @@ import {CHECK_INTERVAL} from '../const';
 import {ApplyPurpose} from './apply-purpose';
 
 export type ApplyCategory = 'apply' | 'extend' | 'transfer' | 'apply_permanent';
-export type ApplyReason = 'economic' | 'family' | 'educational' | 'empty';
+export type ApplyReason =
+  | 'economic'
+  | 'family'
+  | 'educational'
+  | 'humanitarian'
+  | 'empty';
 
 interface Config {
   telegramToken: string;

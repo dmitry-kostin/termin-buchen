@@ -87,6 +87,7 @@ export class SecondPageScenario {
       economic: 'Economic activity',
       family: 'Family reasons',
       educational: 'Educational purposes',
+      humanitarian: 'Humanitarian grounds',
     };
     if (reason === 'empty') {
       return;
