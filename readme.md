@@ -11,8 +11,8 @@ The script automates the process of scheduling a termin, booking, or appointment
 The script _doesn't book anything for you_ - it just helps to find an open slot by attempting to register every 1 min and
 leaves the browser open so you can continue the process in the same window.
 
-You will receive a notification when you have a possible hit so it's probably good idea to allow notification in system
-settings. Also telegram notifications are available but you need to setup keys [on your own unfortunately](./telegram.md).
+You will receive a notification when you have a possible hit so it's probably good idea to allow notifications in system
+settings. Also _telegram notifications_ are available, but unfortunately you need to setup keys [on your own](./telegram.md).
 
 ### Setup
 
