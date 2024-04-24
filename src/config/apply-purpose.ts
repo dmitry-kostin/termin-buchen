@@ -23,6 +23,10 @@ export const ApplyPurpose = {
   '19c1': 'Residence permit to start a traineeship (sect. 19c para. 1)',
   '19c1_2': 'Residence permit to start an employment as an Au-pair (sect. 19c para. 1)',
 
+  // extension only -> humanitarian reasons
+  '22-25': 'Residence permit issued on humanitarian grounds - Extension (sect. 22 - 25)',
+  '23a': 'Residence permit in cases of hardship - extension (sect. 23a)',
+
   // transfer purposes
   transfer_blue_card_eu: 'Transfer of a Blue Card EU to a new passport',
   transfer_permanent_settlement_permit: 'Transfer of a permanent settlement permit or an EU long-term residence permit to a new passport',

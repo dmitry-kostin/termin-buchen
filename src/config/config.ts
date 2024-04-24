@@ -2,7 +2,12 @@ import {CHECK_INTERVAL} from '../const';
 import {ApplyPurpose} from './apply-purpose';
 
 export type ApplyCategory = 'apply' | 'extend' | 'transfer' | 'apply_permanent';
-export type ApplyReason = 'economic' | 'family' | 'educational' | 'empty';
+export type ApplyReason =
+  | 'economic'
+  | 'family'
+  | 'educational'
+  | 'humanitarian'
+  | 'empty';
 
 interface Config {
   telegramToken: string;
@@ -41,6 +46,7 @@ export const config: Config = (() => {
         process.env.REASON !== 'economic' &&
         process.env.REASON !== 'family' &&
         process.env.REASON !== 'educational' &&
+        process.env.REASON !== 'humanitarian' &&
         process.env.REASON !== 'empty'
       ) {
         throw new Error('REASON config value is unknown');
