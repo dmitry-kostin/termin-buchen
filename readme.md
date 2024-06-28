@@ -82,6 +82,7 @@ MAIN_CITIZENSHIP=Russian Federation
 NUMBER_OF_PEOPLE=one person
 LIVE_WITH=no
 CATEGORY=transfer
+REASON=empty
 PURPOSE=transfer_blue_card_eu
 ```
 
